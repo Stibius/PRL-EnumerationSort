@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#pocet cisel bud zadam nebo 10 :)
+if [ $# -ne 1 ];then 
+    echo "Chyba: Pocet parametru musi byt 1!"
+    exit -1
+else
+    pocet_hodnot=$1;
+fi;
+
+#preklad cpp zdrojaku
+mpic++ --prefix /usr/local/share/OpenMPI -std=c++11 -o es es.cpp
+
+#vyrobeni souboru s random cisly
+dd if=/dev/random bs=1 count=$pocet_hodnot of=numbers >& /dev/null
+
+#spusteni
+mpirun --prefix /usr/local/share/OpenMPI -np $((pocet_hodnot+1)) es
+
+#uklid
+rm -f es numbers
