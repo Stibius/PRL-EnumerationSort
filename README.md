@@ -1,4 +1,4 @@
-# PRL - Paralelní a distribuované algoritmy - Implementace algoritmu "Enumeration sort"
+# PRL - Paralelní a distribuované algoritmy - Implementace algoritmu Enumeration sort
 
 ### Dokumentace:
 
